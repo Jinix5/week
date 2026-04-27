@@ -3,320 +3,423 @@
 <html class="dark" lang="en"><head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Aether AI | Intelligence in Motion</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;900&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "tertiary-fixed": "#e5e2e1",
+                        "surface-dim": "#131313",
+                        "primary-container": "#ff571a",
+                        "surface-container-low": "#1c1b1b",
+                        "on-primary": "#5e1700",
+                        "on-error": "#690005",
+                        "secondary-container": "#fdd400",
+                        "on-secondary-fixed-variant": "#544600",
+                        "on-secondary-fixed": "#221b00",
+                        "primary": "#ffb59e",
+                        "tertiary": "#c8c6c5",
+                        "surface-container": "#201f1f",
+                        "on-tertiary-container": "#2a2a2a",
+                        "error": "#ffb4ab",
+                        "on-background": "#e5e2e1",
+                        "primary-fixed": "#ffdbd0",
+                        "error-container": "#93000a",
+                        "inverse-surface": "#e5e2e1",
+                        "background": "#131313",
+                        "surface-variant": "#353534",
+                        "secondary-fixed-dim": "#e9c400",
+                        "on-primary-fixed": "#3a0b00",
+                        "inverse-primary": "#ae3200",
+                        "tertiary-fixed-dim": "#c8c6c5",
+                        "surface-container-high": "#2a2a2a",
+                        "primary-fixed-dim": "#ffb59e",
+                        "on-tertiary-fixed": "#1c1b1b",
+                        "secondary-fixed": "#ffe170",
+                        "on-tertiary": "#313030",
+                        "secondary": "#fff3d2",
+                        "inverse-on-surface": "#313030",
+                        "outline": "#ad897e",
+                        "on-secondary-container": "#6f5c00",
+                        "on-primary-fixed-variant": "#852400",
+                        "surface-tint": "#ffb59e",
+                        "on-tertiary-fixed-variant": "#474746",
+                        "surface-bright": "#3a3939",
+                        "surface": "#131313",
+                        "on-secondary": "#3a3000",
+                        "on-error-container": "#ffdad6",
+                        "surface-container-highest": "#353534",
+                        "on-surface": "#e5e2e1",
+                        "on-surface-variant": "#e6beb2",
+                        "surface-container-lowest": "#0e0e0e",
+                        "on-primary-container": "#521300",
+                        "outline-variant": "#5c4037",
+                        "tertiary-container": "#929090"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "margin-mobile": "20px",
+                        "container-max": "1440px",
+                        "margin-desktop": "80px",
+                        "gutter": "32px",
+                        "unit": "8px"
+                    },
+                    "fontFamily": {
+                        "body-lg": ["Inter"],
+                        "display-xl": ["Space Grotesk"],
+                        "label-sm": ["Space Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Space Grotesk"],
+                        "headline-lg": ["Space Grotesk"]
+                    },
+                    "fontSize": {
+                        "body-lg": ["18px", {"lineHeight": "1.6", "letterSpacing": "0", "fontWeight": "400"}],
+                        "display-xl": ["96px", {"lineHeight": "1.0", "letterSpacing": "-0.04em", "fontWeight": "700"}],
+                        "label-sm": ["12px", {"lineHeight": "1", "letterSpacing": "0.1em", "fontWeight": "500"}],
+                        "body-md": ["16px", {"lineHeight": "1.5", "letterSpacing": "0", "fontWeight": "400"}],
+                        "headline-md": ["40px", {"lineHeight": "1.2", "letterSpacing": "-0.01em", "fontWeight": "600"}],
+                        "headline-lg": ["64px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "600"}]
+                    }
+                },
+            },
+        }
+    </script>
 <style>
-        body {
-            background-color: #131313;
-            color: #e5e2e1;
-            overflow-x: hidden;
-        }
-        .glass-panel {
-            backdrop-filter: blur(40px);
+        .glass-card {
             background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
         }
-        .glow-border {
-            border: 1px solid transparent;
-            background: linear-gradient(#131313, #131313) padding-box,
-                        linear-gradient(to bottom right, rgba(255,255,255,0.2), rgba(255,77,0,0.5), transparent) border-box;
-        }
-        .obsidian-gradient {
-            background: radial-gradient(circle at 50% 50%, rgba(255, 77, 0, 0.08) 0%, rgba(19, 19, 19, 1) 70%);
+        .solar-flare-bg {
+            background: radial-gradient(circle at center, rgba(255, 87, 26, 0.15) 0%, transparent 70%);
         }
         .grid-pattern {
-            background-image: radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
+            background-image: linear-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px), 
+                              linear-gradient(90deg, rgba(255, 255, 255, 0.05) 1px, transparent 1px);
             background-size: 40px 40px;
         }
     </style>
-<script id="tailwind-config">
-      tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            "colors": {
-                    "surface-container": "#201f1f",
-                    "outline-variant": "#5c4037",
-                    "surface-bright": "#3a3939",
-                    "inverse-on-surface": "#313030",
-                    "on-tertiary-fixed-variant": "#920703",
-                    "primary-fixed": "#ffdbd0",
-                    "secondary-fixed-dim": "#ffba20",
-                    "primary": "#ffb59e",
-                    "secondary-container": "#feb700",
-                    "on-tertiary": "#690000",
-                    "on-primary": "#5e1700",
-                    "primary-container": "#ff571a",
-                    "surface": "#131313",
-                    "inverse-surface": "#e5e2e1",
-                    "on-surface": "#e5e2e1",
-                    "tertiary-container": "#fb5945",
-                    "on-error-container": "#ffdad6",
-                    "on-primary-container": "#521300",
-                    "tertiary": "#ffb4a8",
-                    "outline": "#ad897e",
-                    "on-secondary-container": "#6b4b00",
-                    "inverse-primary": "#ae3200",
-                    "error": "#ffb4ab",
-                    "primary-fixed-dim": "#ffb59e",
-                    "on-primary-fixed-variant": "#852400",
-                    "on-tertiary-fixed": "#410000",
-                    "background": "#131313",
-                    "surface-container-lowest": "#0e0e0e",
-                    "on-surface-variant": "#e6beb2",
-                    "surface-container-low": "#1c1b1b",
-                    "secondary-fixed": "#ffdea8",
-                    "secondary": "#ffdb9d",
-                    "on-tertiary-container": "#5c0000",
-                    "on-secondary": "#412d00",
-                    "tertiary-fixed-dim": "#ffb4a8",
-                    "on-error": "#690005",
-                    "tertiary-fixed": "#ffdad4",
-                    "surface-variant": "#353534",
-                    "surface-dim": "#131313",
-                    "on-secondary-fixed-variant": "#5e4200",
-                    "surface-container-highest": "#353534",
-                    "error-container": "#93000a",
-                    "on-primary-fixed": "#3a0b00",
-                    "surface-tint": "#ffb59e",
-                    "on-background": "#e5e2e1",
-                    "on-secondary-fixed": "#271900",
-                    "surface-container-high": "#2a2a2a"
-            },
-            "borderRadius": {
-                    "DEFAULT": "0.25rem",
-                    "lg": "0.5rem",
-                    "xl": "0.75rem",
-                    "full": "9999px"
-            },
-            "spacing": {
-                    "container-padding": "64px",
-                    "unit": "8px",
-                    "gutter": "24px",
-                    "widget-gap": "32px"
-            },
-            "fontFamily": {
-                    "headline-md": ["Space Grotesk"],
-                    "headline-lg": ["Space Grotesk"],
-                    "label-caps": ["Space Grotesk"],
-                    "body-md": ["Inter"],
-                    "body-lg": ["Inter"],
-                    "headline-xl": ["Space Grotesk"]
-            },
-            "fontSize": {
-                    "headline-md": ["32px", {"lineHeight": "120%", "fontWeight": "500"}],
-                    "headline-lg": ["48px", {"lineHeight": "110%", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                    "label-caps": ["12px", {"lineHeight": "100%", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                    "body-md": ["16px", {"lineHeight": "150%", "fontWeight": "400"}],
-                    "body-lg": ["18px", {"lineHeight": "160%", "fontWeight": "400"}],
-                    "headline-xl": ["80px", {"lineHeight": "90%", "letterSpacing": "-0.04em", "fontWeight": "700"}]
-            }
-          },
-        },
-      }
-    </script>
 </head>
-<body class="font-body-md bg-surface text-on-surface">
+<body class="bg-surface font-body-md text-on-surface selection:bg-primary-container selection:text-on-primary-container">
 <!-- TopNavBar -->
-<header class="fixed top-0 w-full z-[100] bg-zinc-950/80 backdrop-blur-3xl border-b border-white/10 shadow-[0_8px_30px_rgb(255,77,0,0.1)]">
-<nav class="flex justify-between items-center h-20 px-16 max-w-[1920px] mx-auto">
-<div class="text-2xl font-black tracking-tighter text-white uppercase">AETHER AI</div>
-<div class="hidden md:flex items-center gap-10">
-<a class="font-space-grotesk uppercase tracking-widest text-xs font-bold text-orange-500 border-b-2 border-orange-500 pb-1" href="#">Capabilities</a>
-<a class="font-space-grotesk uppercase tracking-widest text-xs font-bold text-zinc-400 hover:text-white transition-colors duration-300" href="#">Success Stories</a>
-<a class="font-space-grotesk uppercase tracking-widest text-xs font-bold text-zinc-400 hover:text-white transition-colors duration-300" href="#">Intelligence</a>
-<a class="font-space-grotesk uppercase tracking-widest text-xs font-bold text-zinc-400 hover:text-white transition-colors duration-300" href="#">Enterprise</a>
+<nav class="fixed top-0 w-full z-50 bg-zinc-950/40 backdrop-blur-2xl border-b border-white/10 shadow-2xl shadow-orange-900/5 h-24">
+<div class="flex justify-between items-center max-w-[1440px] mx-auto px-10 h-full">
+<div class="text-2xl font-black tracking-tighter text-white dark:text-zinc-50">
+                Aether AI
+            </div>
+<div class="hidden md:flex gap-10 items-center">
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-orange-500 dark:text-orange-400 border-b-2 border-orange-500 pb-1 hover:text-white transition-all duration-300" href="#">Solutions</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-zinc-400 hover:text-white transition-all duration-300" href="#">Capabilities</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-zinc-400 hover:text-white transition-all duration-300" href="#">Process</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-zinc-400 hover:text-white transition-all duration-300" href="#">Insights</a>
+<a class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-zinc-400 hover:text-white transition-all duration-300" href="#">Success Stories</a>
 </div>
 <div class="flex items-center gap-6">
-<button class="font-space-grotesk uppercase tracking-widest text-xs font-bold text-zinc-400 hover:text-white transition-colors duration-300">Client Login</button>
-<button class="px-6 py-2 bg-white text-black font-space-grotesk uppercase tracking-widest text-xs font-bold active:scale-95 transition-transform duration-200">Connect Now</button>
+<button class="font-['Space_Grotesk'] tracking-tight uppercase text-xs font-semibold text-zinc-400 hover:text-white transition-all duration-300 active:scale-95">Client Portal</button>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-full font-['Space_Grotesk'] tracking-tight uppercase text-xs font-bold hover:brightness-110 active:scale-95 transition-all">
+                    Launch Project
+                </button>
+</div>
 </div>
 </nav>
-</header>
-<main class="relative pt-20 grid-pattern obsidian-gradient min-h-screen">
 <!-- Hero Section -->
-<section class="max-w-[1920px] mx-auto px-16 py-32 grid grid-cols-12 gap-widget-gap items-center min-h-[921px]">
-<div class="col-span-12 lg:col-span-7 flex flex-col gap-8">
-<div class="inline-flex items-center gap-3 py-2 px-4 glass-panel border-white/20 w-fit">
-<span class="w-2 h-2 rounded-full bg-primary-container animate-pulse shadow-[0_0_10px_#ff571a]"></span>
-<span class="font-label-caps text-on-surface-variant uppercase">Neural Engine Online: V4.0 Stable</span>
+<main class="relative pt-48 pb-32 overflow-hidden">
+<div class="absolute inset-0 grid-pattern pointer-events-none opacity-40"></div>
+<div class="absolute top-0 right-0 w-1/2 h-full solar-flare-bg pointer-events-none"></div>
+<div class="max-w-[1440px] mx-auto px-10 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+<div class="md:col-span-6 z-10">
+<div class="flex items-center gap-2 mb-6">
+<div class="w-2 h-2 rounded-full bg-secondary-container animate-pulse"></div>
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary-container">System Live: v4.2.0</span>
 </div>
-<h1 class="font-headline-xl text-white">Intelligence<br/><span class="text-transparent bg-clip-text bg-gradient-to-r from-primary-container to-tertiary-container">Redefined</span></h1>
-<p class="font-body-lg text-on-surface-variant max-w-xl">
-                    Deploy cognitive architectures that anticipate market shifts before they manifest. Aether AI is the hyper-dimensional substrate for the next generation of global industry.
+<h1 class="font-display-xl text-display-xl mb-8 leading-tight">
+                    INTELLIGENCE <br/>
+<span class="text-primary-container">REDEFINED</span>
+</h1>
+<p class="font-body-lg text-body-lg text-tertiary max-w-lg mb-12">
+                    Architecting bespoke AI ecosystems that scale human intuition. We fuse high-precision engineering with visionary creative intelligence to solve the unsolvable.
                 </p>
-<div class="flex gap-6 mt-4">
-<button class="px-8 py-4 bg-white text-black font-label-caps uppercase hover:bg-primary-container hover:text-white transition-all duration-300">Initialize Deployment</button>
-<button class="px-8 py-4 border border-white/20 font-label-caps uppercase hover:bg-white/5 transition-all duration-300">Review whitepaper</button>
+<div class="flex flex-wrap gap-6">
+<button class="bg-primary-container text-on-primary-container px-10 py-5 rounded-xl font-headline-md text-body-md font-bold flex items-center gap-3 hover:brightness-110 active:scale-95 transition-all">
+                        Launch Project
+                        <span class="material-symbols-outlined">north_east</span>
+</button>
+<button class="glass-card px-10 py-5 rounded-xl font-headline-md text-body-md font-semibold text-white hover:bg-white/10 active:scale-95 transition-all">
+                        View Capabilities
+                    </button>
 </div>
 </div>
-<!-- Hero Data Widgets -->
-<div class="col-span-12 lg:col-span-5 grid grid-cols-2 gap-6 relative">
-<!-- Neural Latency Widget -->
-<div class="glass-panel p-6 glow-border col-span-2 flex flex-col gap-4">
-<div class="flex justify-between items-center">
-<span class="font-label-caps text-on-surface-variant">NEURAL LATENCY</span>
-<span class="text-primary-container font-mono text-sm">0.002ms</span>
+<div class="md:col-span-6 relative h-[600px] flex items-center justify-center">
+<!-- Data Visualization Widget -->
+<div class="glass-card absolute top-10 right-0 w-80 p-6 rounded-2xl z-30 shadow-2xl">
+<div class="flex justify-between items-center mb-6">
+<span class="font-label-sm text-label-sm text-tertiary">COGNITIVE LOAD</span>
+<span class="material-symbols-outlined text-primary" data-icon="monitoring">monitoring</span>
 </div>
-<div class="h-16 flex items-end gap-1">
-<!-- Simulated Waveform -->
-<div class="flex-1 bg-primary-container/40 h-[20%]"></div>
-<div class="flex-1 bg-primary-container/60 h-[40%]"></div>
-<div class="flex-1 bg-primary-container h-[80%]"></div>
-<div class="flex-1 bg-primary-container/50 h-[30%]"></div>
-<div class="flex-1 bg-primary-container/30 h-[10%]"></div>
-<div class="flex-1 bg-primary-container/80 h-[90%]"></div>
-<div class="flex-1 bg-primary-container h-[60%]"></div>
-<div class="flex-1 bg-primary-container/40 h-[20%]"></div>
+<div class="space-y-4">
+<div class="flex justify-between text-xs font-medium">
+<span>Neural Latency</span>
+<span class="text-primary">12ms</span>
 </div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-primary-container h-full w-[85%]"></div>
 </div>
-<!-- Cognitive Load Widget -->
-<div class="glass-panel p-6 glow-border flex flex-col gap-6 items-center">
-<span class="font-label-caps text-on-surface-variant self-start">COGNITIVE LOAD</span>
-<div class="relative w-32 h-32 flex items-center justify-center">
-<svg class="w-full h-full transform -rotate-90">
-<circle cx="64" cy="64" fill="transparent" r="58" stroke="rgba(255,255,255,0.05)" stroke-width="8"></circle>
-<circle cx="64" cy="64" fill="transparent" r="58" stroke="#ff571a" stroke-dasharray="364.4" stroke-dashoffset="100" stroke-width="8"></circle>
-</svg>
-<span class="absolute font-headline-md text-white">72%</span>
+<div class="flex justify-between text-xs font-medium">
+<span>Model Efficiency</span>
+<span class="text-secondary-fixed">99.4%</span>
 </div>
-</div>
-<!-- Synaptic Density Widget -->
-<div class="glass-panel p-6 glow-border flex flex-col gap-2">
-<span class="font-label-caps text-on-surface-variant">SYNAPTIC DENSITY</span>
-<div class="text-4xl font-headline-md text-white mt-4">8.4<span class="text-lg text-primary-container">Pb/s</span></div>
-<div class="w-full h-1 bg-white/5 mt-auto">
-<div class="w-3/4 h-full bg-primary-container shadow-[0_0_8px_#ff571a]"></div>
+<div class="w-full bg-white/10 h-1.5 rounded-full overflow-hidden">
+<div class="bg-secondary-container h-full w-[94%]"></div>
 </div>
 </div>
 </div>
-</section>
-<!-- Core Capabilities (Bento Grid) -->
-<section class="max-w-[1920px] mx-auto px-16 py-32">
-<div class="flex flex-col mb-20">
-<span class="font-label-caps text-primary-container uppercase mb-4 tracking-[0.3em]">Operational Framework</span>
-<h2 class="font-headline-lg text-white">Core Capabilities</h2>
+<!-- Central Visualizer -->
+<div class="relative w-full h-full flex items-center justify-center">
+<div class="absolute w-[400px] h-[400px] border border-white/10 rounded-full animate-[spin_20s_linear_infinite]"></div>
+<div class="absolute w-[500px] h-[500px] border border-white/5 rounded-full animate-[spin_30s_linear_infinite_reverse]"></div>
+<img class="w-80 h-80 object-cover rounded-full mix-blend-screen z-20" data-alt="Futuristic glowing 3D crystal structure representing artificial intelligence with orange and white light reflections on dark background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuADnRkDPwFIcQe9m8kM5dQPBk_Gww6TQ-UemxQZiBRtiIJOFK4gl78XHmRhquJAyRrppNSQoR9G9155BHDWKeZ1ZD7AEYge1N3Z6BYGviRIzanQmBB8zibaQeAW2JYzLNcceQzqWyu1BUMAKqKur85YbW7LWx8Cf4L5ct0mtQRp79b7aSqvvKhEF6OPmcpGL0fRfpmDbJLHZ6JVX9iDxZcp4zFNnRGIUP25OH7Xdq7XHnr9TeP7iCmlkcGzRPzGOl9YZnnDjEvHN-fr"/>
 </div>
-<div class="grid grid-cols-12 gap-8">
-<!-- Large Card -->
-<div class="col-span-12 md:col-span-8 glass-panel overflow-hidden group">
-<div class="relative h-[400px]">
-<img class="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-transform duration-700" data-alt="futuristic 3d digital representation of neural network and blockchain connections with glowing amber nodes and deep shadows" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBr6pueQNbPLsbmpJnm8V057FfWEEm4Rz9HYBaPniYikbJTJXZ42QKvakOKRF_yM9cChQSKC7kmWir9yBYQIBjWLHmOzsJdYmN8GPXuuPpL0_xqtHckMvnF2tb8IRSrHG7WB6hKU82U-kdnu6wQRZyIKg2IlPaXFPD8mk_TElOYppXAJdWoruT5clC36eywDYSbJCHXlLHVT0a5x65P4qYWpe2EXwBvu_XiqLOURDAjEqTjZv4gvj7W0RKLvGYzlCfeWufCZ-5BWyth"/>
-<div class="absolute inset-0 bg-gradient-to-t from-surface to-transparent p-12 flex flex-col justify-end">
-<span class="material-symbols-outlined text-primary-container mb-6 text-4xl" style="font-variation-settings: 'FILL' 1;">neurology</span>
-<h3 class="font-headline-md text-white mb-4">Autonomous Pattern Synthesis</h3>
-<p class="font-body-md text-on-surface-variant max-w-lg">Our proprietary LLM-8 architecture identifies non-linear correlations across disparate global data streams in microseconds.</p>
+<!-- Floating System Status -->
+<div class="glass-card absolute bottom-10 left-0 w-64 p-5 rounded-2xl z-30 flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-primary-container/20 flex items-center justify-center">
+<span class="material-symbols-outlined text-primary-container" data-icon="memory">memory</span>
 </div>
-</div>
-</div>
-<!-- Tall Card -->
-<div class="col-span-12 md:col-span-4 glass-panel p-12 flex flex-col justify-between glow-border">
 <div>
-<span class="material-symbols-outlined text-primary-container mb-6 text-4xl">security</span>
-<h3 class="font-headline-md text-white mb-6">Quantum-Safe Encryption</h3>
-<p class="font-body-md text-on-surface-variant">Advanced lattice-based cryptographic protocols ensuring your proprietary models remain inaccessible to external threats.</p>
-</div>
-<button class="w-full py-4 border border-white/10 font-label-caps uppercase text-on-surface-variant hover:text-white hover:bg-white/5 transition-all">Protocol Details</button>
-</div>
-<!-- Small Cards -->
-<div class="col-span-12 md:col-span-4 glass-panel p-12 hover:bg-white/5 transition-colors">
-<h4 class="font-label-caps text-primary-container mb-4">01 // PREDICTIVE</h4>
-<h3 class="font-headline-sm text-xl text-white font-bold mb-4 uppercase tracking-wider">Predictive Logistics</h3>
-<p class="font-body-md text-on-surface-variant">Global supply chain optimization via temporal modeling and demand forecasting.</p>
-</div>
-<div class="col-span-12 md:col-span-4 glass-panel p-12 hover:bg-white/5 transition-colors">
-<h4 class="font-label-caps text-primary-container mb-4">02 // BIOMETRIC</h4>
-<h3 class="font-headline-sm text-xl text-white font-bold mb-4 uppercase tracking-wider">Cognitive Augmentation</h3>
-<p class="font-body-md text-on-surface-variant">Direct interface protocols for human-machine collaborative decision environments.</p>
-</div>
-<div class="col-span-12 md:col-span-4 glass-panel p-12 hover:bg-white/5 transition-colors">
-<h4 class="font-label-caps text-primary-container mb-4">03 // EDGE</h4>
-<h3 class="font-headline-sm text-xl text-white font-bold mb-4 uppercase tracking-wider">Edge Intelligence</h3>
-<p class="font-body-md text-on-surface-variant">Deploy full-stack AI models to lightweight edge hardware without latency penalties.</p>
-</div>
-</div>
-</section>
-<!-- Success Stories (Cinematic Carousel Style) -->
-<section class="py-32 bg-surface-container-lowest/50">
-<div class="max-w-[1920px] mx-auto px-16">
-<div class="flex justify-between items-end mb-16">
-<div class="flex flex-col">
-<span class="font-label-caps text-primary-container uppercase mb-4 tracking-[0.3em]">Case Studies</span>
-<h2 class="font-headline-lg text-white">Success Stories</h2>
-</div>
-<div class="flex gap-4">
-<button class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all">
-<span class="material-symbols-outlined">arrow_back</span>
-</button>
-<button class="w-12 h-12 border border-white/10 flex items-center justify-center hover:bg-white/5 transition-all">
-<span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-<!-- Story 1 -->
-<div class="flex flex-col gap-6 group">
-<div class="aspect-[4/5] overflow-hidden glass-panel glow-border">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Modern minimalist server room with dramatic orange lighting strips and sleek hardware towers" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBBNzZCvqDuF5HToJ2ry7UtyqX9NqcPVAgsS4n2zX68mDFo8qCwg1M8tSgMcLQgMlDJxyXoNWQfE_udiz7nXo67Wm5euJqyPzmPxweX1KnWnNXFBr8WHciJlls2o9zrHBPVIkQfwmYlNu0MdHRWQEqprXWBaViroFzEbBuizhXT6OcxNz97c3gKNDIKndQO__OP3Lj6P2GPmqXVc60_ivxkXXiQdiqLJiNfjjnwEDobQpV30_dxlFkbkXSVBOry847cI4IVLrbG0CS7"/>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-on-surface-variant">Global Logistics Inc.</span>
-<h3 class="font-headline-md text-2xl text-white group-hover:text-primary-container transition-colors">40% Reduction in Idle Fleet Time</h3>
-</div>
-</div>
-<!-- Story 2 -->
-<div class="flex flex-col gap-6 group">
-<div class="aspect-[4/5] overflow-hidden glass-panel glow-border">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Industrial robot arm working on a precise circuit board assembly in a dark high-tech factory" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAr_ak1y3pOuKZe6eeb_kwjEce-W6bosXEQ7I9_ozRJVMbhzN5BnfT9zw1gtW35EUMRs-dgXhD2UHKpFjtowktsQcEefP-SuRGhmhrMFisS1aecJoQlqgB6Uw5i6FZX5uSio8SedDzzsD0dU2eIRyFPFYCNxtZWqiB3izlfmyVnUPknsUb0PDdxEBXiY7vT96fLDzlMIvHBU9eFAi1W8oiJb1MCHxywPbwsCccpsdfbz_lTO9wvFcPRM7QohPTVQMSMaYHSTUutpB-t"/>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-on-surface-variant">Neural Fabrication Systems</span>
-<h3 class="font-headline-md text-2xl text-white group-hover:text-primary-container transition-colors">Real-time Quality Synthesis</h3>
-</div>
-</div>
-<!-- Story 3 -->
-<div class="flex flex-col gap-6 group">
-<div class="aspect-[4/5] overflow-hidden glass-panel glow-border">
-<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700" data-alt="Satellite view of earth with digital data overlays and networking lines glowing in orange and white" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCo09fhlN8Oc7mo3LYVWF9jWTjtRml_MyVRhZ1QutOwZSDPCU8wg7ydhd6PmPTFfm_psleT9m0gLwYhxvRupKcBU3Z-NB16HkUUzeT8_XsHjuCsjASp2aJWYo4IKKwAebMBe5Mc_E5xObmuTJf6YQqsD_BO2qQMGPvbOzNTVXmMhWDT2bdf0Rd9hWE3ZydhbWuM5YQz4mB1E04CACMZFEpYQyk0vY8tLRzvPS-owaux1JZCigpOAwBGfmskWYQ_JOX77ZO9HXaKqjoI"/>
-</div>
-<div class="flex flex-col gap-2">
-<span class="font-label-caps text-on-surface-variant">Orbital Research Labs</span>
-<h3 class="font-headline-md text-2xl text-white group-hover:text-primary-container transition-colors">Zero-Latency Remote Telemetry</h3>
+<div class="text-[10px] text-tertiary uppercase tracking-widest font-bold">Node Identity</div>
+<div class="text-sm font-semibold">Alpha-Sigma-09</div>
 </div>
 </div>
 </div>
 </div>
-</section>
-<!-- Step into the Future (Newsletter) -->
-<section class="max-w-[1920px] mx-auto px-16 py-40">
-<div class="glass-panel p-20 glow-border relative overflow-hidden flex flex-col items-center text-center">
-<div class="absolute -top-24 -right-24 w-96 h-96 bg-primary-container/10 blur-[120px] rounded-full"></div>
-<div class="absolute -bottom-24 -left-24 w-96 h-96 bg-tertiary-container/10 blur-[120px] rounded-full"></div>
-<span class="font-label-caps text-primary-container uppercase mb-6 tracking-[0.4em]">Initialize Transmission</span>
-<h2 class="font-headline-lg text-white mb-8">Step into the Future</h2>
-<p class="font-body-lg text-on-surface-variant max-w-2xl mb-12">Join 12,000+ engineers, researchers, and global leaders receiving the bi-weekly Aether Intelligence brief.</p>
-<form class="w-full max-w-md flex flex-col md:flex-row gap-4">
-<input class="flex-1 bg-white/5 border-b border-white/20 px-6 py-4 text-white placeholder:text-zinc-600 focus:outline-none focus:border-primary-container transition-all" placeholder="ENTER ACCESS CODE (EMAIL)" type="email"/>
-<button class="px-8 py-4 bg-white text-black font-label-caps uppercase hover:bg-primary-container hover:text-white transition-all duration-300">Authorize</button>
-</form>
-<p class="mt-6 font-label-caps text-zinc-600">Encrypted with 4096-bit AES-GCM protocols.</p>
-</div>
-</section>
 </main>
-<!-- Footer -->
-<footer class="bg-black border-t border-white/5 w-full relative z-10">
-<div class="max-w-[1920px] mx-auto px-16 py-12 flex flex-col md:flex-row justify-between items-center gap-8">
-<div class="flex flex-col gap-2">
-<div class="text-lg font-bold text-white font-space-grotesk uppercase tracking-tighter">AETHER AI</div>
-<p class="font-space-grotesk text-[10px] tracking-[0.2em] uppercase text-zinc-600">© 2024 AETHER AI SYSTEMS. ALL RIGHTS RESERVED. COGNITIVE ARCHITECTURE V4.0</p>
+<!-- Social Proof -->
+<section class="py-20 border-y border-white/5">
+<div class="max-w-[1440px] mx-auto px-10">
+<p class="font-label-sm text-label-sm text-center text-tertiary mb-12 uppercase tracking-[0.3em]">Trusted by Industry Leaders</p>
+<div class="flex flex-wrap justify-between items-center gap-12 opacity-40 grayscale contrast-125">
+<span class="text-2xl font-black font-display-xl">VOLT</span>
+<span class="text-2xl font-black font-display-xl">NEXUS</span>
+<span class="text-2xl font-black font-display-xl">ORBIT</span>
+<span class="text-2xl font-black font-display-xl">PRISM</span>
+<span class="text-2xl font-black font-display-xl">SYNTH</span>
 </div>
-<div class="flex gap-12">
-<a class="font-space-grotesk text-[10px] tracking-[0.2em] uppercase text-zinc-600 hover:text-orange-500 hover:tracking-[0.3em] transition-all duration-500" href="#">Global Privacy</a>
-<a class="font-space-grotesk text-[10px] tracking-[0.2em] uppercase text-zinc-600 hover:text-orange-500 hover:tracking-[0.3em] transition-all duration-500" href="#">Security Protocols</a>
-<a class="font-space-grotesk text-[10px] tracking-[0.2em] uppercase text-zinc-600 hover:text-orange-500 hover:tracking-[0.3em] transition-all duration-500" href="#">API Documentation</a>
-<a class="font-space-grotesk text-[10px] tracking-[0.2em] uppercase text-zinc-600 hover:text-orange-500 hover:tracking-[0.3em] transition-all duration-500" href="#">Open Source</a>
+</div>
+</section>
+<!-- Capabilities Section (Bento Grid) -->
+<section class="py-32 relative">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="mb-20 max-w-2xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-4">Ecosystem Architecture</span>
+<h2 class="font-headline-lg text-headline-lg">CORE CAPABILITIES</h2>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="glass-card group p-10 rounded-3xl hover:bg-white/[0.06] transition-all duration-500">
+<div class="w-16 h-16 rounded-2xl bg-primary-container/10 flex items-center justify-center mb-10 group-hover:bg-primary-container/20 transition-all">
+<span class="material-symbols-outlined text-primary-container text-4xl" data-icon="auto_awesome">auto_awesome</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Generative AI</h3>
+<p class="text-tertiary leading-relaxed mb-8">
+                        Custom LLM fine-tuning and creative synthesis engines designed to amplify enterprise workflows.
+                    </p>
+<a class="text-primary-container font-semibold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        EXPLORE SOLUTION <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Card 2 -->
+<div class="glass-card group p-10 rounded-3xl hover:bg-white/[0.06] transition-all duration-500">
+<div class="w-16 h-16 rounded-2xl bg-secondary-container/10 flex items-center justify-center mb-10 group-hover:bg-secondary-container/20 transition-all">
+<span class="material-symbols-outlined text-secondary-container text-4xl" data-icon="query_stats">query_stats</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Predictive Analytics</h3>
+<p class="text-tertiary leading-relaxed mb-8">
+                        Forecasting models that identify market signals before they manifest, leveraging deep temporal networks.
+                    </p>
+<a class="text-secondary-container font-semibold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        EXPLORE SOLUTION <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+<!-- Card 3 -->
+<div class="glass-card group p-10 rounded-3xl hover:bg-white/[0.06] transition-all duration-500">
+<div class="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-10 group-hover:bg-primary/20 transition-all">
+<span class="material-symbols-outlined text-primary text-4xl" data-icon="robot_2">robot_2</span>
+</div>
+<h3 class="font-headline-md text-headline-md mb-6">Autonomous Agents</h3>
+<p class="text-tertiary leading-relaxed mb-8">
+                        Agentic workflows that operate independently, executing complex multi-step processes with precision.
+                    </p>
+<a class="text-primary font-semibold flex items-center gap-2 group-hover:gap-4 transition-all" href="#">
+                        EXPLORE SOLUTION <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</section>
+<!-- How It Works (Process) -->
+<section class="py-32 bg-surface-container-low">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="flex flex-col md:flex-row justify-between items-end gap-10 mb-24">
+<div class="max-w-2xl">
+<span class="font-label-sm text-label-sm text-primary uppercase tracking-widest block mb-4">Precision Engineering</span>
+<h2 class="font-headline-lg text-headline-lg">THE AETHER PROCESS</h2>
+</div>
+<div class="text-tertiary text-right max-w-sm mb-2">
+                    A clinical, high-fidelity approach to deploying artificial intelligence at scale.
+                </div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div class="relative p-8 border-l border-white/10 group">
+<div class="text-5xl font-black text-white/5 mb-8 group-hover:text-primary-container/20 transition-colors">01</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Discovery</h4>
+<p class="text-tertiary text-sm leading-relaxed">Infrastructure assessment and strategic opportunity mapping.</p>
+</div>
+<div class="relative p-8 border-l border-white/10 group">
+<div class="text-5xl font-black text-white/5 mb-8 group-hover:text-primary-container/20 transition-colors">02</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Strategy</h4>
+<p class="text-tertiary text-sm leading-relaxed">Model selection and architectural blueprinting for the ecosystem.</p>
+</div>
+<div class="relative p-8 border-l border-white/10 group">
+<div class="text-5xl font-black text-white/5 mb-8 group-hover:text-primary-container/20 transition-colors">03</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Implementation</h4>
+<p class="text-tertiary text-sm leading-relaxed">Agile development, training, and deep system integration.</p>
+</div>
+<div class="relative p-8 border-l border-white/10 group">
+<div class="text-5xl font-black text-white/5 mb-8 group-hover:text-primary-container/20 transition-colors">04</div>
+<h4 class="font-headline-md text-body-lg font-bold mb-4">Optimization</h4>
+<p class="text-tertiary text-sm leading-relaxed">Continuous refinement, scaling, and intelligence hardening.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Success Stories -->
+<section class="py-32 relative overflow-hidden">
+<div class="absolute top-1/2 left-0 w-96 h-96 solar-flare-bg -translate-y-1/2 -translate-x-1/2"></div>
+<div class="max-w-[1440px] mx-auto px-10 relative z-10">
+<div class="glass-card p-16 rounded-[40px] grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div>
+<span class="material-symbols-outlined text-secondary-container text-6xl mb-8" data-icon="format_quote">format_quote</span>
+<p class="font-headline-md text-headline-md mb-12 leading-tight">
+                        "Aether AI didn't just give us a tool; they redefined our entire operational backbone. Their approach to generative agents saved us 40,000 engineering hours in year one."
+                    </p>
+<div class="flex items-center gap-4">
+<div class="w-16 h-16 rounded-full overflow-hidden border-2 border-primary-container">
+<img class="w-full h-full object-cover" data-alt="Professional portrait of a tech executive man with sharp features and a confident expression in a high-key studio setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDBXekFq-Eo0ohLxWRQl3SvalQWhDtL3TyJdLGImn45KRKdpGoirx3Tp0SQrus-kkYo2lk7ONEljgyCMy4clZUrMAcfLtroS8tRTAH_KM99PHHHhnXF5na3g3sjQ51biNqFpt5R238mQArROO4AOXSOo-2lLn74VAlO24uZdGrbv3ZqPyvrWtaI9aNtooshshzgc4WjA6RFNUq8RL7gp7g-R5LnE0Fs8AlCnv_Kj-DuQRghwRpZcxwYUH1vZBHwO14UI11N4-TGejiW"/>
+</div>
+<div>
+<div class="text-lg font-bold">Marcus Thorne</div>
+<div class="text-primary text-sm font-label-sm uppercase tracking-wider">CEO, Nexus Dynamics</div>
+</div>
+</div>
+</div>
+<div class="space-y-6">
+<div class="glass-card p-8 rounded-2xl border-white/5 hover:border-primary-container/30 transition-all cursor-default">
+<div class="flex justify-between items-start mb-4">
+<h5 class="font-bold text-xl">Supply Chain Sync</h5>
+<span class="bg-primary-container/10 text-primary-container text-[10px] px-2 py-1 rounded">CASE STUDY #01</span>
+</div>
+<p class="text-tertiary text-sm">Reduced inventory latency by 82% using autonomous predictive agents across 12 countries.</p>
+</div>
+<div class="glass-card p-8 rounded-2xl border-white/5 hover:border-secondary-container/30 transition-all cursor-default">
+<div class="flex justify-between items-start mb-4">
+<h5 class="font-bold text-xl">Quant Genesis</h5>
+<span class="bg-secondary-container/10 text-secondary-container text-[10px] px-2 py-1 rounded">CASE STUDY #02</span>
+</div>
+<p class="text-tertiary text-sm">Real-time market sentiment synthesis for a top-tier hedge fund, yielding a 14% alpha increase.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA / Signup Section -->
+<section class="py-32">
+<div class="max-w-[1440px] mx-auto px-10">
+<div class="relative bg-zinc-900 rounded-[3rem] p-20 overflow-hidden text-center">
+<div class="absolute inset-0 grid-pattern opacity-10"></div>
+<div class="absolute top-0 right-0 w-full h-full bg-gradient-to-br from-primary-container/20 via-transparent to-secondary-container/10"></div>
+<div class="relative z-10 max-w-3xl mx-auto">
+<h2 class="font-display-xl text-headline-lg mb-8 uppercase tracking-tight">Step into the <br/><span class="text-white">Future</span></h2>
+<p class="font-body-lg text-tertiary mb-12">The transition to an AI-first architecture is not a choice, it's an evolution. Begin your initialization sequence today.</p>
+<form class="flex flex-col md:flex-row gap-4 max-w-xl mx-auto">
+<input class="flex-1 bg-black/40 border border-white/10 rounded-2xl px-8 py-5 text-white placeholder:text-zinc-600 focus:border-primary-container focus:ring-0 transition-all outline-none font-label-sm" placeholder="ENTER YOUR ACCESS EMAIL" type="email"/>
+<button class="bg-white text-black px-10 py-5 rounded-2xl font-black font-['Space_Grotesk'] tracking-[0.2em] hover:bg-primary-container hover:text-on-primary-container transition-all active:scale-95">
+                            INITIALIZE
+                        </button>
+</form>
+<p class="mt-8 text-[10px] text-zinc-500 tracking-[0.2em] font-bold">SECURE ENCRYPTION ENABLED // NODE ID: ATH-X9</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="bg-zinc-950 border-t border-white/5 py-24">
+<div class="max-w-7xl mx-auto px-8">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-16 mb-20">
+<div class="md:col-span-4">
+<div class="text-2xl font-bold text-white mb-8">Aether AI</div>
+<p class="text-zinc-500 font-['Space_Grotesk'] text-sm tracking-wide leading-relaxed max-w-xs">
+                        Building the cognitive foundations for tomorrow's industry giants. High-precision intelligence, delivered.
+                    </p>
+<div class="flex gap-6 mt-8">
+<a class="text-zinc-500 hover:text-orange-400 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</a>
+<a class="text-zinc-500 hover:text-orange-400 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="hub">hub</span>
+</a>
+<a class="text-zinc-500 hover:text-orange-400 transition-colors" href="#">
+<span class="material-symbols-outlined" data-icon="data_array">data_array</span>
+</a>
+</div>
+</div>
+<div class="md:col-span-8 grid grid-cols-2 md:grid-cols-3 gap-12">
+<div>
+<h6 class="text-white font-bold mb-6 text-sm">RESOURCES</h6>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm text-zinc-500">
+<li><a class="hover:text-orange-400 transition-colors" href="#">White Papers</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Model Benchmarks</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Ethics Protocol</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">API Docs</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 text-sm">COMPANY</h6>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm text-zinc-500">
+<li><a class="hover:text-orange-400 transition-colors" href="#">About</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Careers</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Contact</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Brand Assets</a></li>
+</ul>
+</div>
+<div>
+<h6 class="text-white font-bold mb-6 text-sm">LEGAL</h6>
+<ul class="space-y-4 font-['Space_Grotesk'] text-sm text-zinc-500">
+<li><a class="hover:text-orange-400 transition-colors" href="#">Privacy Policy</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Terms of Service</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Cookie Settings</a></li>
+<li><a class="hover:text-orange-400 transition-colors" href="#">Contact Support</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="border-t border-white/5 pt-12 flex flex-col md:flex-row justify-between items-center gap-8">
+<div class="font-['Space_Grotesk'] text-sm tracking-wide text-zinc-500">
+                    © 2024 Aether AI. Intelligence in Motion.
+                </div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-green-500"></span>
+<span class="text-xs font-bold tracking-widest text-zinc-600 uppercase">All Systems Operational</span>
+</div>
 </div>
 </div>
 </footer>
